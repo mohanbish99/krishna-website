@@ -6,143 +6,184 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body{margin:0;font-family:Arial;background:#f4f6f9;text-align:center;}
 
-header{background:#0a2540;color:white;padding:15px;}
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+}
 
+/* HEADER */
+header{
+padding:20px;
+font-size:26px;
+font-weight:bold;
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(6px);
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* 3D CARDS */
+.card{
+width:90%;
+max-width:400px;
+margin:30px auto;
+padding:20px;
+border-radius:20px;
+background:rgba(255,255,255,0.1);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+transition:.4s;
+}
+
+.card:hover{
+transform:rotateX(5deg) rotateY(5deg) scale(1.03);
+}
+
+/* IMAGES */
+.card img{
+width:100%;
+border-radius:15px;
+margin-top:15px;
+box-shadow:0 5px 15px black;
+}
+
+/* BUTTON */
 button{
 background:#ff7a00;
 color:white;
 border:none;
-padding:15px 25px;
+padding:15px 30px;
 font-size:18px;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
+margin:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px orange;
+}
+
+/* COLORS GRID */
+.colors{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
 margin-top:20px;
 }
 
-.container{display:none;margin-top:30px;}
-
-.box{
-background:white;
-width:320px;
-margin:auto;
-padding:20px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.15);
-}
-
-.color-row{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:15px;
-margin:10px;
-opacity:0;
-}
-
 .color{
-width:60px;
-height:30px;
-border-radius:6px;
-border:1px solid #ccc;
-}
-
-.details{
-margin-top:30px;
-background:white;
-padding:20px;
-}
-
-footer{
-background:#0a2540;
+padding:10px;
+border-radius:10px;
+font-size:13px;
+font-weight:bold;
 color:white;
-padding:15px;
-margin-top:40px;
+box-shadow:0 3px 10px black;
 }
+
+/* FOOTER */
+footer{
+margin-top:40px;
+padding:20px;
+background:rgba(0,0,0,0.4);
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>KRISHNA SALES CORPORATION</h1>
-<p>Authorized Supplier of <span style="color:#ff7a00;">RIYAL</span><span style="color:white;">WIN</span></p>
+KRISHNA SALES CORPORATION
 </header>
 
 <h2>Our Products</h2>
-<button onclick="showData()">Edge Band Tape</button>
 
-<div class="container" id="dataBox">
-<div class="box">
+<button onclick="show()">Show Products</button>
 
-<h3>Available Sizes</h3>
-<p>
+<div id="products" style="display:none">
+
+<!-- EDGE BAND -->
+<div class="card">
+<h2>Edge Band Tape</h2>
+
+<img src="images/edge.jpg">
+
+<p>Premium PVC edge band tape with strong bonding and smooth finish.</p>
+
+<b>Sizes</b><br>
 0.8×22 mm<br>
 0.8×45 mm<br>
 2×22 mm<br>
 2×25 mm<br>
 1.3×22 mm
-</p>
-
-<h3>Colour Options</h3>
-
-<div class="color-row"><div class="color" style="background:#000"></div>101</div>
-<div class="color-row"><div class="color" style="background:#444"></div>102</div>
-<div class="color-row"><div class="color" style="background:#8b5a2b"></div>103</div>
-<div class="color-row"><div class="color" style="background:#c19a6b"></div>104</div>
-<div class="color-row"><div class="color" style="background:#e5e5e5"></div>105</div>
-<div class="color-row"><div class="color" style="background:#6b8e23"></div>106</div>
-<div class="color-row"><div class="color" style="background:#2f4f4f"></div>107</div>
-<div class="color-row"><div class="color" style="background:#b22222"></div>108</div>
-<div class="color-row"><div class="color" style="background:#1e90ff"></div>109</div>
-<div class="color-row"><div class="color" style="background:#ff7a00"></div>110</div>
-
-</div>
 </div>
 
-<!-- DETAILS SECTION -->
-<div class="details">
-<h2>Contact Details</h2>
+<!-- HINGES -->
+<div class="card">
+<h2>Hydraulic Hinges</h2>
 
-<p><b>Address:</b><br>
-Shop No. 12, Industrial Area,<br>
-Bangalore, India
-</p>
+<img src="images/hinge.jpg">
 
-<p><b>Phone:</b> +91 98765 43210</p>
+<b>Material</b><br>
+SS (Stainless Steel)<br>
+MS (Mild Steel)
 
-<p><b>Email:</b> krishnasales@email.com</p>
+<br><br>
 
-<p><b>Product Info:</b><br>
-Premium quality RIYALWIN PVC edge band tapes designed for strong bonding,
-smooth finishing, and long-lasting furniture protection.
-</p>
+<b>Sizes</b><br>
+0 Crank<br>
+8 Crank
 
-<p><b>Business Hours:</b><br>
-Mon – Sat : 9:00 AM – 8:00 PM<br>
-Sunday : Closed
-</p>
+<br><br>
+
+✔ Soft Closing<br>
+✔ Rust Resistant<br>
+✔ Strong Spring<br>
+✔ Long Life
+</div>
+
+<!-- 100 COLORS -->
+<div class="card">
+<h2>100 Color Shades</h2>
+
+<div class="colors" id="colorBox"></div>
+
+</div>
 
 </div>
 
 <footer>
-© 2026 KRISHNA SALES CORPORATION
+© 2026 Krishna Sales Corporation
 </footer>
 
 <script>
-function showData(){
-let box=document.getElementById("dataBox");
-box.style.display="block";
 
-let rows=document.querySelectorAll(".color-row");
-rows.forEach((row,i)=>{
-setTimeout(()=>{
-row.style.opacity="1";
-row.style.transition="0.5s";
-}, i*300);
-});
+function show(){
+document.getElementById("products").style.display="block";
 }
+
+/* GENERATE 100 COLORS */
+let box=document.getElementById("colorBox");
+
+for(let i=1;i<=100;i++){
+
+let div=document.createElement("div");
+div.className="color";
+
+let hue=i*3.6;
+div.style.background=`hsl(${hue},70%,50%)`;
+
+div.innerHTML=`${i}<br>hsl(${Math.round(hue)},70%,50%)`;
+
+box.appendChild(div);
+}
+
 </script>
 
 </body>
