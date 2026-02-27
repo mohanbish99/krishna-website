@@ -51,7 +51,7 @@ to{opacity:1; transform:translateY(0);}
 
 .box{
 background:white;
-width:340px;
+width:350px;
 margin:auto;
 padding:22px;
 border-radius:14px;
@@ -60,7 +60,7 @@ box-shadow:0 8px 25px rgba(0,0,0,0.15);
 
 .color-list{
 text-align:left;
-max-height:260px;
+max-height:300px;
 overflow:auto;
 margin-top:10px;
 }
@@ -69,7 +69,7 @@ margin-top:10px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-margin:8px 0;
+margin:6px 0;
 }
 
 .color{
@@ -84,6 +84,14 @@ font-size:12px;
 background:#eee;
 padding:3px 7px;
 border-radius:6px;
+margin-right:5px;
+}
+
+.note{
+font-size:14px;
+color:#555;
+margin-top:10px;
+font-style:italic;
 }
 
 footer{
@@ -124,11 +132,10 @@ margin-top:50px;
 <span class="tag">HG (High Gloss)</span>
 <span class="tag">Matt</span>
 
-<h3>Woodgrain Colours</h3>
-<div class="color-list" id="wood"></div>
+<p class="note">Also available in Wood & Marble colors</p>
 
-<h3>Solid Colours</h3>
-<div class="color-list" id="colors"></div>
+<h3>Solid Colours (30)</h3>
+<div class="color-list" id="solid"></div>
 
 </div>
 </div>
@@ -170,84 +177,24 @@ document.querySelectorAll(".container").forEach(e=>e.style.display="none");
 document.getElementById(id).style.display="block";
 }
 
-/* WOOD COLORS */
-let woodNames=[
-"Teak","Walnut","Oak","Wenge","Mahogany",
-"Rosewood","Cherry","Maple","Pine","Ash"
-];
-
-let woodBox=document.getElementById("wood");
-
-woodNames.forEach((name,i)=>{
+/* SOLID COLOURS 30 */
+let solidBox=document.getElementById("solid");
+for(let i=1;i<=30;i++){
 let row=document.createElement("div");
 row.className="color-row";
 
 let color=document.createElement("div");
 color.className="color";
-color.style.background=`hsl(${30+i*8},50%,40%)`;
+color.style.background=`hsl(${i*12},70%,50%)`;
 
 let text=document.createElement("span");
-text.textContent=name;
+text.textContent="Solid "+i;
 
 row.appendChild(color);
 row.appendChild(text);
-woodBox.appendChild(row);
-});
-
-/* 100 SOLID COLORS */
-let box=document.getElementById("colors");
-
-for(let i=101;i<=200;i++){
-let hue=(i*37)%360;
-
-let row=document.createElement("div");
-row.className="color-row";
-
-let color=document.createElement("div");
-color.className="color";
-color.style.background=`hsl(${hue},70%,50%)`;
-
-let code=document.createElement("span");
-code.textContent="Code "+i;
-
-row.appendChild(color);
-row.appendChild(code);
-
-box.appendChild(row);
+solidBox.appendChild(row);
 }
 </script>
 
 </body>
 </html>
-```
-
----
-
-## 🎯 New Features Added
-- Woodgrain colors section
-- HG + Matt tags
-- Professional layout
-- Scrollable color lists
-- Clean product structure
-
----
-
-✅ **Upload steps**
-1. Open GitHub repo  
-2. Open `index.html`  
-3. Click ✏ Edit  
-4. Paste code  
-5. Commit changes  
-6. Refresh site  
-
----
-
-⭐ Want next professional upgrade?
-Choose number:
-
-1️⃣ Add product images grid  
-2️⃣ Add WhatsApp order button  
-3️⃣ Add price column  
-4️⃣ Make it premium glass UI  
-
-Just reply number 😎
