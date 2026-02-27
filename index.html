@@ -6,129 +6,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
+background:#f4f6f9;
 text-align:center;
 }
 
-/* HEADER */
 header{
-padding:20px;
-font-size:26px;
-font-weight:bold;
-background:rgba(0,0,0,0.3);
-backdrop-filter:blur(6px);
-box-shadow:0 5px 15px rgba(0,0,0,0.4);
+background:#0a2540;
+color:white;
+padding:18px;
+box-shadow:0 3px 10px rgba(0,0,0,.2);
 }
 
-/* 3D CARDS */
-.card{
-width:90%;
-max-width:400px;
-margin:30px auto;
-padding:20px;
-border-radius:20px;
-background:rgba(255,255,255,0.1);
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
-backdrop-filter:blur(10px);
-transition:.4s;
-}
-
-.card:hover{
-transform:rotateX(5deg) rotateY(5deg) scale(1.03);
-}
-
-/* IMAGES */
-.card img{
-width:100%;
-border-radius:15px;
-margin-top:15px;
-box-shadow:0 5px 15px black;
-}
-
-/* BUTTON */
 button{
 background:#ff7a00;
 color:white;
 border:none;
-padding:15px 30px;
+padding:15px 28px;
 font-size:18px;
 border-radius:12px;
 cursor:pointer;
-margin:20px;
-box-shadow:0 0 20px rgba(0,0,0,0.4);
+margin:15px;
 transition:.3s;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
 
 button:hover{
-transform:scale(1.1);
-box-shadow:0 0 25px orange;
+transform:scale(1.05);
+box-shadow:0 0 15px orange;
 }
 
-/* COLORS GRID */
-.colors{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:10px;
+.container{
+display:none;
 margin-top:20px;
+animation:fadeUp .6s;
+}
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(25px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.box{
+background:white;
+width:340px;
+margin:auto;
+padding:22px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.color-list{
+text-align:left;
+max-height:260px;
+overflow:auto;
+margin-top:10px;
+}
+
+.color-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin:8px 0;
 }
 
 .color{
-padding:10px;
-border-radius:10px;
-font-size:13px;
-font-weight:bold;
-color:white;
-box-shadow:0 3px 10px black;
+width:60px;
+height:28px;
+border-radius:6px;
+border:1px solid #ccc;
 }
 
-/* FOOTER */
+.tag{
+font-size:12px;
+background:#eee;
+padding:3px 7px;
+border-radius:6px;
+}
+
 footer{
-margin-top:40px;
-padding:20px;
-background:rgba(0,0,0,0.4);
+background:#0a2540;
+color:white;
+padding:18px;
+margin-top:50px;
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-KRISHNA SALES CORPORATION
+<h1>KRISHNA SALES CORPORATION</h1>
+<p>Authorized Supplier of <span style="color:#ff7a00;">RIYAL</span><span style="color:white;">WIN</span></p>
 </header>
 
 <h2>Our Products</h2>
 
-<button onclick="show()">Show Products</button>
-
-<div id="products" style="display:none">
+<button onclick="showSection('edge')">Edge Band Tape</button>
+<button onclick="showSection('hinge')">Hydraulic Hinges</button>
 
 <!-- EDGE BAND -->
-<div class="card">
-<h2>Edge Band Tape</h2>
+<div id="edge" class="container">
+<div class="box">
 
-<img src="images/edge.jpg">
-
-<p>Premium PVC edge band tape with strong bonding and smooth finish.</p>
-
-<b>Sizes</b><br>
+<h3>Edge Band Sizes</h3>
+<p>
 0.8×22 mm<br>
 0.8×45 mm<br>
 2×22 mm<br>
 2×25 mm<br>
 1.3×22 mm
+</p>
+
+<h3>Finish Types</h3>
+<span class="tag">HG (High Gloss)</span>
+<span class="tag">Matt</span>
+
+<h3>Woodgrain Colours</h3>
+<div class="color-list" id="wood"></div>
+
+<h3>Solid Colours</h3>
+<div class="color-list" id="colors"></div>
+
+</div>
 </div>
 
 <!-- HINGES -->
-<div class="card">
-<h2>Hydraulic Hinges</h2>
+<div id="hinge" class="container">
+<div class="box">
 
-<img src="images/hinge.jpg">
+<h3>Hydraulic Hinges</h3>
 
 <b>Material</b><br>
 SS (Stainless Steel)<br>
@@ -136,55 +145,109 @@ MS (Mild Steel)
 
 <br><br>
 
-<b>Sizes</b><br>
+<b>Crank Types</b><br>
 0 Crank<br>
 8 Crank
 
 <br><br>
 
-✔ Soft Closing<br>
-✔ Rust Resistant<br>
-✔ Strong Spring<br>
-✔ Long Life
-</div>
-
-<!-- 100 COLORS -->
-<div class="card">
-<h2>100 Color Shades</h2>
-
-<div class="colors" id="colorBox"></div>
+<b>Features</b><br>
+• Soft Closing<br>
+• Rust Resistant<br>
+• Strong Spring<br>
+• Long Life
 
 </div>
-
 </div>
 
 <footer>
-© 2026 Krishna Sales Corporation
+© 2026 KRISHNA SALES CORPORATION
 </footer>
 
 <script>
-
-function show(){
-document.getElementById("products").style.display="block";
+function showSection(id){
+document.querySelectorAll(".container").forEach(e=>e.style.display="none");
+document.getElementById(id).style.display="block";
 }
 
-/* GENERATE 100 COLORS */
-let box=document.getElementById("colorBox");
+/* WOOD COLORS */
+let woodNames=[
+"Teak","Walnut","Oak","Wenge","Mahogany",
+"Rosewood","Cherry","Maple","Pine","Ash"
+];
 
-for(let i=1;i<=100;i++){
+let woodBox=document.getElementById("wood");
 
-let div=document.createElement("div");
-div.className="color";
+woodNames.forEach((name,i)=>{
+let row=document.createElement("div");
+row.className="color-row";
 
-let hue=i*3.6;
-div.style.background=`hsl(${hue},70%,50%)`;
+let color=document.createElement("div");
+color.className="color";
+color.style.background=`hsl(${30+i*8},50%,40%)`;
 
-div.innerHTML=`${i}<br>hsl(${Math.round(hue)},70%,50%)`;
+let text=document.createElement("span");
+text.textContent=name;
 
-box.appendChild(div);
+row.appendChild(color);
+row.appendChild(text);
+woodBox.appendChild(row);
+});
+
+/* 100 SOLID COLORS */
+let box=document.getElementById("colors");
+
+for(let i=101;i<=200;i++){
+let hue=(i*37)%360;
+
+let row=document.createElement("div");
+row.className="color-row";
+
+let color=document.createElement("div");
+color.className="color";
+color.style.background=`hsl(${hue},70%,50%)`;
+
+let code=document.createElement("span");
+code.textContent="Code "+i;
+
+row.appendChild(color);
+row.appendChild(code);
+
+box.appendChild(row);
 }
-
 </script>
 
 </body>
 </html>
+```
+
+---
+
+## 🎯 New Features Added
+- Woodgrain colors section
+- HG + Matt tags
+- Professional layout
+- Scrollable color lists
+- Clean product structure
+
+---
+
+✅ **Upload steps**
+1. Open GitHub repo  
+2. Open `index.html`  
+3. Click ✏ Edit  
+4. Paste code  
+5. Commit changes  
+6. Refresh site  
+
+---
+
+⭐ Want next professional upgrade?
+Choose number:
+
+1️⃣ Add product images grid  
+2️⃣ Add WhatsApp order button  
+3️⃣ Add price column  
+4️⃣ Make it premium glass UI  
+
+Just reply number 😎
